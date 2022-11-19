@@ -33,6 +33,7 @@ class UserManager(BaseUserManager):
             password=password,
         )
         user.staff = True
+        user.approved = True
         user.save(using=self._db)
         return user
 
@@ -48,8 +49,13 @@ class UserManager(BaseUserManager):
         )
         user.staff = True
         user.admin = True
+        user.approved = True
         user.save(using=self._db)
         return user
+
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
 
 
 class User(AbstractBaseUser):
