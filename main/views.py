@@ -16,7 +16,7 @@ with open("currency.json", 'r') as file:
 
 class SignUp(CreateView):
     form_class = RegisterForm
-    template_name = 'main/sign_up.html'
+    template_name = 'main/register_page.html'
     success_url = 'admin'
 
     def form_valid(self, form):
@@ -45,7 +45,7 @@ def show_header(request):
 
 class SignIn(LoginView):
     form_class = LoginForm
-    template_name = 'main/sign_in.html'
+    template_name = 'main/login_page.html'
 
     def get_success_url(self):
         return reverse_lazy('admin')
