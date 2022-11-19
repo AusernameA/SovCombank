@@ -15,19 +15,19 @@ class UserAdmin(BaseUserAdmin):
     form = UserAdminChangeForm
     add_form = UserAdminCreationForm
 
-    list_display = ['phone', 'passport_ID', 'passport_Series',
+    list_display = ['phone', 'passport_ID', 'passport_Series', "amount_of_money",
                     "time_registrate", "approved", "banned", 'admin']
     list_filter = ['admin', "time_registrate", "approved", "banned"]
-    # fieldsets = (
-    #     (None, {'fields': ('phone', 'password',)}),
-    #     ('Personal info', {'fields': ("passport_ID", "passport_Series", )}),
-    #     ('Permissions', {'fields': ("approved", "banned", 'admin',)}),
-    # )
+    fieldsets = (
+        (None, {'fields': ('phone', 'password',)}),
+        ('Personal info', {'fields': ("passport_ID", "passport_Series", )}),
+        ('Permissions', {'fields': ("approved", "banned", 'admin',)}),
+    )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('phone', 'password', "passport_ID", "passport_Series",
-                       "approved", "banned", 'admin',)}
+            'fields': ('phone', 'password1', "passport_ID", "passport_Series",
+                       "approved", "banned", 'admin')}
         ),
     )
     search_fields = ['phone']

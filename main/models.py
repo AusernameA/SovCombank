@@ -62,6 +62,7 @@ class User(AbstractBaseUser):
     phone = models.CharField(max_length=20, unique=True, verbose_name="телефон")
     passport_ID = models.IntegerField(verbose_name="номер паспорта")
     passport_Series = models.IntegerField(verbose_name="серия паспорта")
+    amount_of_money = models.IntegerField(default=0, verbose_name="кол-во денег на счету")
     time_registrate = models.DateField(auto_now_add=True, verbose_name="Дата регистрации")
     approved = models.BooleanField(default=False, verbose_name="верифицирован")
     banned = models.BooleanField(default=False, verbose_name="забанен")
