@@ -5,7 +5,7 @@
     width: 450px;
     height: min-content;
     padding: 20px;
-    background: #153F8E;
+    background: linear-gradient(to right, #153F8E 50%, #E95253 50%);
     border-radius: 4px;
 }
 
@@ -17,6 +17,11 @@
 
 .login form{
     font-size: 20px;
+}
+
+span{
+    padding: 0 5px;
+    color: white;
 }
 
 .login form .form_group {

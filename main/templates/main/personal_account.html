@@ -1,0 +1,22 @@
+{% extends 'main/base_header.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="../../static/main/css/personal_account.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="container " id="personal_info">
+    {% for info in personal_info %}
+    <div class="row justify-content-between">
+        <div class="col-3 ml-auto my-col text-center width-100">
+            {{info.title1}}
+        </div>
+        <div class="col-7 mr-auto my-col text-center">
+            {{info.title2}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

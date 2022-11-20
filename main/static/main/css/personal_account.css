@@ -1,0 +1,10 @@
+#personal_info .row *{
+    background-color: #F0F0F0;
+    color: #153F8E;
+    margin: 30px 0;
+    font-size: 20px;
+}
+
+.my-col{
+    padding: 20px 0;
+}

@@ -1,19 +1,59 @@
 {% extends 'main/base_header.html' %}
 
+{% block styles %}
+<link rel="stylesheet" href="../../static/main/css/currency_page.css">
+{% endblock %}
+
 {% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <p class="h2 text-center">Калькулятор</p>
+        <div class="row">
+            <div class="col-10">
+                <input class="form-control" type="number" name="amount_from" >
+            </div>
+            <div class="col-2">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="currency_from">
+                  <option selected>From</option>
+                    {% for cur in currencies %}
+                        <option>{{cur}}</option>
+                     {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-10">
+                <input class="form-control" type="number" name="amount_to" value="{{amount_to}}">
+            </div>
+            <div class="col-2">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="currency_to">
+                  <option selected>To</option>
+                    {% for cur in currencies %}
+                        <option>{{ cur }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <input class="btn btn-success w-100 bg-white text-dark " type="submit" value="Посчитать">
+    </div>
+
+</form>
 
 <div class="container">
-    <p class="h2 text-center">Калькулятор</p>
-    <div class="container">
+    <p class="h2 text-center">Курс валют к доллару</p>
+    {% for key, value in price.items %}
+        <div class="row my-row">
+            <div class="col-6 name-col ml-auto text-center">
+                {{key}}
+            </div>
+            <div class="col-6 price-col mr-auto text-end">
+                {{value}}
+            </div>
+        </div>
 
-    </div>
-    <div class="container">
-
-    </div>
-</div>
-
-<div class="container">
-    {% for key, value in currencies %}
+    {% endfor %}
 </div>
 
 {% endblock %}
